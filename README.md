@@ -7,4 +7,4 @@ A simple method for creating solr deb packages in Docker.
 ## Build the Docker image.
 1. Clone the repository.
 2. Sudo to root.
-3. Run `docker build -t solr .`.
+3. Run `docker build -t solr .` command to build the image.
