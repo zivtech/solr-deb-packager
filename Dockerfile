@@ -11,14 +11,14 @@ ARG SOLR_DOWNLOAD_SERVER
 ARG GPG_KEYSERVER
 
 RUN apt-get update && \
-  apt-get -y install apt-utils build-essential lsof procps ruby ruby-dev && \
+  apt-get -y install ruby ruby-dev rubygems build-essential lsof procps libffi-dev ruby ruby-dev && \
   rm -rf /var/lib/apt/lists/*
 
 ENV SOLR_USER solr
 
 ENV SOLR_KEY 478EEF7066AD843EC4812769707B7D9F6FDB8105
 ENV GPG_KEYSERVER ${GPG_KEYSERVER:-"hkp://ha.pool.sks-keyservers.net"}
-RUN gpg --keyserver $GPG_KEYSERVER --recv-keys $SOLR_KEY
+RUN gpg --keyserver hkp://eu.pool.sks-keyservers.net --recv-keys 478EEF7066AD843EC4812769707B7D9F6FDB8105
 
 ARG VERSION
 ENV VERSION ${VERSION:-7.1}
@@ -27,8 +27,8 @@ ENV SOLR_VERSION ${SOLR_VERSION:-6.4.0}
 ENV SOLR_SHA256 1213ae09023058ea1cbd971a1b585f891fb63fa76e128611031bfc28c749b502
 ENV SOLR_URL ${SOLR_DOWNLOAD_SERVER:-https://archive.apache.org/dist/lucene/solr}/$SOLR_VERSION/solr-$SOLR_VERSION.tgz
 
-RUN apt-get install -y ruby ruby-dev
-RUN gem install fpm
+#RUN apt-get install -y ruby ruby-dev
+RUN gem install --no-ri --no-rdoc fpm
 
 RUN mkdir -p /var/lib/solr && mkdir -p /solr-scratch/solr
 RUN env
