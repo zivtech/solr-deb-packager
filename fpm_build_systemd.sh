@@ -14,4 +14,4 @@ fpm -s dir \
   --deb-use-file-permissions \
   --deb-init init.d/solr \
   --deb-default defaults/solr.in.sh \
-  build/opt/solr/=opt/solr
+  build/opt/solr/=/opt/solr

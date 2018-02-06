@@ -1,6 +1,4 @@
 FROM    openjdk:8-jre
-MAINTAINER  Howard Tyson "howard@howradtyson.com"
-
 
 # Override the solr download location with e.g.:
 #   docker build -t mine --build-arg SOLR_DOWNLOAD_SERVER=http://www-eu.apache.org/dist/lucene/solr .
@@ -36,3 +34,7 @@ RUN wget -nv $SOLR_URL -O /solr-scratch/solr-$SOLR_VERSION.tgz
 RUN tar -C /solr-scratch/solr --extract --file /solr-scratch/solr-$SOLR_VERSION.tgz --strip-components=1
 RUN /solr-scratch/solr/bin/install_solr_service.sh /solr-scratch/solr-$SOLR_VERSION.tgz -d /var/lib/solr
 WORKDIR /solr-scratch
+COPY scripts /solr-scratch/scripts
+COPY *.sh /solr-scratch/
+COPY init.d /solr-scratch/init.d
+COPY defaults /solr-scratch/defaults

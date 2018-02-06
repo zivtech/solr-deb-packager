@@ -22,5 +22,4 @@ fpm -s dir \
   --deb-init /etc/init.d/solr \
   --deb-default /etc/defaults/solr.in.sh \
   --deb-use-file-permissions \
-  /opt/solr
-  /var/lib/solr
+  /opt/solr/=/var/lib/solr/

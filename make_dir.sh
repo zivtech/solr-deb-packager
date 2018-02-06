@@ -6,3 +6,5 @@ cp -ra /opt/solr/ /package/opt
 cp -ra /var/lib/solr/ /package/var/lib
 
 mkdir /build
+#mkdir /build/opt
+#mkdir /build/opt/solr

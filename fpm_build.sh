@@ -6,7 +6,7 @@ fpm -s dir \
   -v '6.4.0' \
   --iteration '0.0.0' \
   -d adduser \
-  -m howard@howardtyson.com \
+  -m jason@zivtech.com \
   --description 'A simple solr service packed for easy installation.'  \
   --before-install=scripts/before-install.sh  \
   --after-install=scripts/before-install.sh  \
@@ -14,4 +14,4 @@ fpm -s dir \
   --deb-use-file-permissions \
   --deb-init init.d/solr \
   --deb-default defaults/solr.in.sh \
-  build/opt/solr/=opt/solr
+  /package/opt/solr/=opt/solr /package/var/lib/solr=var/lib/solr
