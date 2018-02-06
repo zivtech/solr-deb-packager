@@ -38,3 +38,6 @@ COPY scripts /solr-scratch/scripts
 COPY *.sh /solr-scratch/
 COPY init.d /solr-scratch/init.d
 COPY defaults /solr-scratch/defaults
+
+RUN /solr-scratch/make_dir.sh
+RUN /solr-scratch/fpm_build.sh
